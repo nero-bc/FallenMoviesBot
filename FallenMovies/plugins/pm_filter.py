@@ -1,12 +1,12 @@
 import re
 import random
 import asyncio
-from TheHanCock.helpers.utils import get_shortlink
+from FallenMovies.helpers.utils import get_shortlink
 from config import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, BUTTON
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
 from pyrogram.errors import UserNotParticipant
-from TheHanCock.helpers.utils import get_filter_results, get_file_details, is_subscribed, get_poster
+from FallenMovies.helpers.utils import get_filter_results, get_file_details, is_subscribed, get_poster
 from config import PREMIUMS as subscriptions
 
 BUTTONS = {}
