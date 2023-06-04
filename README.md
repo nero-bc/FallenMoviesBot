@@ -2,7 +2,7 @@
 <b> ˹ғᴀʟʟᴇɴ ᴍᴏᴠɪᴇs ʙσᴛ˼ 🇷🇺</b>
 </p>
 
-<p align="center"><a href="https://t.me/TeleBotsUpdate"><img src="https://telegra.ph/file/3443b024b47952fd9aedf.jpg" width="300"></a></p>
+<p align="center"><a href="https://t.me/TeleBotsUpdate"><img src="https://graph.org/file/d67fbfe7faa4477907bb4.jpg" width="300"></a></p>
 <p align="center">
 
 
