@@ -9,4 +9,4 @@ RUN pip3 install -U pip && pip3 install -U -r requirements.txt
 
 COPY . .
 
-CMD python3 TheHanCock
+CMD python3 FallenMovies
