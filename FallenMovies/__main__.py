@@ -10,13 +10,13 @@ logging.getLogger().setLevel(logging.ERROR)
 from pyrogram import types
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
-from TheHanCock.helpers.utils import Media
+from FallenMovies.helpers.utils import Media
 from config import SESSION, API_ID, API_HASH, BOT_TOKEN
 from typing import Union, Optional, AsyncGenerator
 
 # -------------------» ʜᴀɴᴄᴏᴄᴋ-ʙᴏᴛ-ᴄʟɪᴇɴᴛ «------------------- #
 
-class TheHanCock(Client):
+class FallenMovies(Client):
 
     def __init__(self):
         super().__init__(
@@ -25,7 +25,7 @@ class TheHanCock(Client):
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
             workers=50,
-            plugins={"root": "TheHanCock.plugins"},
+            plugins={"root": "FallenMovies.plugins"},
             sleep_threshold=5,
         )
 
@@ -58,5 +58,5 @@ class TheHanCock(Client):
                 current += 1
 
 
-app = TheHanCock()
+app = FallenMovies()
 app.run()
