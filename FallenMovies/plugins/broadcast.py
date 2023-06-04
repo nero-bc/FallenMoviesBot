@@ -4,7 +4,7 @@ import asyncio
 import logging 
 import datetime
 from config import ADMINS
-from TheHanCock.helpers.database import db
+from FallenMovies.helpers.database import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
