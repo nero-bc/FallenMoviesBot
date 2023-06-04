@@ -1,0 +1,15 @@
+bs4==0.0.1
+aiohttp==3.8.4
+motor==3.1.1
+umongo==3.1.0
+heroku3== 5.2.0
+pyrogram==2.0.102
+pyromod==1.5
+tgcrypto== 1.2.5
+requests==2.28.2
+pymongo>=3.7.0
+marshmallow==3.19.0
+parse-torrent-name==1.1.1
+paytm
+
+
