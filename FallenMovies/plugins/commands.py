@@ -6,7 +6,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.errors import UserNotParticipant, FloodWait, UserIsBlocked, InputUserDeactivated
 from pyrogram.types import Message, CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from config import PICS, START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
-from TheHanCock.helpers.utils import Media, get_file_details, get_size
+from FallenMovies.helpers.utils import Media, get_file_details, get_size
 logger = logging.getLogger(__name__)
 
 
