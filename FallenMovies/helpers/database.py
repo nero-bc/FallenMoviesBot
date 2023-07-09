@@ -1,8 +1,6 @@
 import motor.motor_asyncio
 from config import DATABASE_URI, DATABASE_NAME
 
-# -------------------» ʙʀᴏᴀᴅᴄᴀsᴛ-ᴅᴀᴛᴀʙᴀsᴇ «------------------- #
-
 class Database:
 
     def __init__(self, uri, database_name):
@@ -39,9 +37,3 @@ class Database:
     
 
 db = Database(DATABASE_URI, DATABASE_NAME)
-
-    
-
-# -------------------» ʙʀᴏᴅᴄᴀsᴛ-ᴅᴀᴛᴀʙᴀsᴇ «------------------- #
-
-
