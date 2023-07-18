@@ -21,20 +21,12 @@ PLANS_TEXT = """<code>
 
 ᴇɴᴊᴏʏ ʏᴏᴜʀ ᴘʟᴀɴ ᴀɴᴅ ɢᴇᴛ ᴍᴏʀᴇ ᴍᴏᴠɪᴇs ᴡɪᴛʜ ᴀᴅᴅ ғʀᴇᴇ
 
-ᴛʜᴇsᴇ ᴀʀᴇ ᴀʟʟ ᴛʜᴇ ᴘʟᴀɴs ᴀᴠᴀɪʟᴀʙʟᴇ !
+ᴘʀɪᴢᴇ ᴏɴʟʏ 30ʀs ᴘᴇʀ ᴍᴏɴᴛʜ 
 
-ᴋɪɴᴅʟʏ ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ ᴛᴏ ᴀᴄᴛɪᴠᴀᴛᴇ ᴏɴᴇ.</code>
-[ᴄʟɪᴄᴋ](https://t.me/Reqstmovies)
+ᴄʟɪᴄᴋ ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ʙᴜᴛᴛᴏɴ ᴀɴᴅ sᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ sᴄʀᴇᴇɴsʜᴏᴛ.</code>
+
 """
 
-HOW_TO_PAY = """
-<u>ʜᴏᴡ ᴛᴏ ᴘᴀʏ ᴍᴏɴᴇʏ</u>
-<code>» sᴛᴇᴘ 𝟷 : sᴄᴀɴ ʙᴀʀ ᴄᴏᴅᴇ ᴏʀ ᴘᴀʏ ᴏɴ ᴛʜɪs ᴜᴘɪ</code> : <code> reqstmovies@ybl </code>
-
-<code>» sᴛᴇᴘ 𝟸 : ᴄʟɪᴄᴋ ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ʙᴜᴛᴛᴏɴ ᴀɴᴅ sᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ sᴄʀᴇᴇɴsʜᴏᴛ.</code>
-
-<code>» sᴛᴇᴘ 𝟹 : ɪ ᴡɪʟʟ ᴀᴅᴅ ʏᴏᴜʀ ᴘʟᴀɴ ɪɴsᴛᴀɴᴛ.</code>
-"""
 
 # ------------------» ᴛᴇxᴛ-sʏɴᴛᴀx «------------------ #
 
@@ -400,47 +392,25 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     reply_markup=InlineKeyboardMarkup(buttons)
                     )
 
-        elif query.data=="home":
-            buttons = [
-        [
-            InlineKeyboardButton("sɪʟᴠᴇʀ - 39ʀs|1 ᴍᴏɴᴛʜ", callback_data=f"alert_msg")
-        ],
-        [
-            InlineKeyboardButton("ᴘʟᴀᴛɪɴᴜᴍ - 99ʀs|3 ᴍᴏɴᴛʜs", callback_data="alert_msg2"),            
-        ],
-        [
-            InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ", url="https://t.me/Reqstmovies"),
-            InlineKeyboardButton("ʜᴏᴡ ᴛᴏ ᴘᴀʏ ᴍᴏɴᴇʏ", callback_data="help_pay"),            
-  
-        ],
-    ]
-            reply_markup = InlineKeyboardMarkup(buttons)
-            try:
-                await query.edit_message_text(
-                    PLANS_TEXT,
-                    reply_markup=reply_markup
-            )
-            except MessageNotModified:
-                pass
+    
 
-
-        elif query.data=="help_pay":
+        elif query.data=="Direct_file":
             get_me = await client.get_me()
             USERNAME = get_me.username
             buttons = [
                 [
                     InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ", url="https://t.me/Reqstmovies"),
-                    InlineKeyboardButton("ǫʀ ᴄᴏᴅᴇ sᴄᴀɴ", url="https://graph.org/file/c9ce45d64cc8f278a1c00.jpg"),
+                    InlineKeyboardButton("ᴘᴀʏᴛᴍ", url="https://paytm.me/Gh-Qs3P"),
                 ],   
                 [   
                     InlineKeyboardButton(" ᴄʟᴏsᴇ ", callback_data="close") ,
-                    InlineKeyboardButton("⟲ ʙᴀᴄᴋ ⟳", callback_data="home")
+                    
                 ]
            ]
             reply_markup = InlineKeyboardMarkup(buttons)
             try:
                 await query.edit_message_text(
-                    HOW_TO_PAY,
+                    PLANS_TEXT,
                     reply_markup=reply_markup
             )
             except MessageNotModified:
@@ -455,9 +425,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data=="alert_msg2":
             await query.answer("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ ᴛᴏ ᴀᴄᴛɪᴠᴀᴛᴇ ᴀɴʏ ᴘᴀɴɴᴇʟ !", show_alert=True)
 
-        elif query.data=="Direct_file":
-            await query.answer("ɪғ ʏᴏᴜ ʙᴜʏ ᴘʟᴀɴ ᴛʜᴇɴ ʏᴏᴜ ɢᴇᴛ ᴅɪʀᴇᴄᴛ ᴍᴏᴠɪᴇs ғɪʟᴇ\nᴇɴᴊᴏʏ ʏᴏᴜʀ ᴘʟᴀɴ ᴀɴᴅ ɢᴇᴛ ᴍᴏʀᴇ ᴍᴏᴠɪᴇs ᴡɪᴛʜ ᴀᴅᴅ ғʀᴇᴇ\nᴛᴏ ᴄʜᴇᴄᴋ ᴀʟʟ ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs !!", show_alert=True)
-
+        
         elif query.data == "pages":
             await query.answer()
         elif query.data == "close":
