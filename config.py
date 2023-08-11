@@ -29,8 +29,8 @@ BOT_TOKEN = "5895914482:AAGWrQgS_JIpFeuM-A0M_NIL7hYLRxDH8Kk"
 
 
 # ---------» ᴀᴅᴍɪɴs ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴜsᴇʀs «---------
-PREMIUMS = [5709622852, 5416887843, 5807975896]
-ADMINS = [5709622852, 5416887843, 5807975896]
+PREMIUMS = [6109551937, 5416887843, 6018550523]
+ADMINS = [6109551937, 5416887843, 6018550523]
 CHANNELS = [-1001652627420, -1001896500605]
 auth_users = []
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
@@ -40,7 +40,7 @@ AUTH_GROUPS = []
 
 # ---------» ʟɪɴᴋ sʜᴏʀᴛɴᴇʀ ᴄᴏɴᴠᴇʀᴛᴇʀ «---------
 URL_SHORTNER_API = environ.get("URL_SHORTNER_API", "https://urlshortx.com/api?api")
-URL_SHORTNER_API_KEY = environ.get("URL_SHORTNER_API_KEY", "9e057515d222131456b51729e54033ab4e1d6936") # "c460f2f1a0f68b2c56cda7f12121c210ed10b08b"
+URL_SHORTNER_API_KEY = environ.get("URL_SHORTNER_API_KEY", "c460f2f1a0f68b2c56cda7f12121c210ed10b08b")
 
 
 
