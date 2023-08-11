@@ -40,7 +40,7 @@ AUTH_GROUPS = []
 
 # ---------» ʟɪɴᴋ sʜᴏʀᴛɴᴇʀ ᴄᴏɴᴠᴇʀᴛᴇʀ «---------
 URL_SHORTNER_API = environ.get("URL_SHORTNER_API", "https://urlshortx.com/api?api")
-URL_SHORTNER_API_KEY = environ.get("URL_SHORTNER_API_KEY", "c460f2f1a0f68b2c56cda7f12121c210ed10b08b")
+URL_SHORTNER_API_KEY = environ.get("URL_SHORTNER_API_KEY", "9e057515d222131456b51729e54033ab4e1d6936") # "c460f2f1a0f68b2c56cda7f12121c210ed10b08b"
 
 
 
