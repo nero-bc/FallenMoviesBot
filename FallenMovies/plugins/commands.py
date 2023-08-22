@@ -52,11 +52,10 @@ async def start(bot, cmd):
                             ]
                         ]
                     ),
-                await add_served_user(cmd.from_user.id),
-                    
                     parse_mode=enums.ParseMode.MARKDOWN,
                     disable_web_page_preview=True
                 )
+                await add_served_user(cmd.from_user.id)
                 return
             except Exception:
                 await bot.send_message(
@@ -71,30 +70,30 @@ async def start(bot, cmd):
             filedetails = await get_file_details(file_id)
             for files in filedetails:
                 title = files.file_name
-                size=get_size(files.file_size)
-                f_caption=files.caption
+                size = get_size(files.file_size)
+                f_caption = files.caption
                 if CUSTOM_FILE_CAPTION:
                     try:
-                        f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
+                        f_caption = CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
                     except Exception as e:
                         print(e)
-                        f_caption=f_caption
+                        f_caption = f_caption
                 if f_caption is None:
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                           InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url="https://t.me/TheMoviesUpdate"),
-                           InlineKeyboardButton('sᴜᴘᴘᴏʀᴛ ', url="https://t.me/TheMoviesRequests")
+                        InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url="https://t.me/TheMoviesUpdate"),
+                        InlineKeyboardButton('sᴜᴘᴘᴏʀᴛ ', url="https://t.me/TheMoviesRequests")
                     ]
-                    
-                    ]
+
+                ]
                 await bot.send_cached_media(
                     chat_id=cmd.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
                     reply_markup=InlineKeyboardMarkup(buttons)
-                    )
-                await add_served_user(cmd.from_user.id)          
+                )
+                await add_served_user(cmd.from_user.id)
 
         except Exception as err:
             await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
@@ -127,9 +126,10 @@ async def start(bot, cmd):
                         InlineKeyboardButton("🎡 sᴜᴘᴘᴏʀᴛ", url="https://t.me/TheMoviesRequests")
                     ]
                 ]
-           )
+            )
         )
         await add_served_user(cmd.from_user.id)
+        
                     
 
 
