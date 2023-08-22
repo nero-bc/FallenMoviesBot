@@ -52,7 +52,7 @@ async def start(bot, cmd):
                             ]
                         ]
                     ),
-                    await add_served_user(cmd.from_user.id)
+                    await add_served_user(cmd.from_user.id),
                     
                     parse_mode=enums.ParseMode.MARKDOWN,
                     disable_web_page_preview=True
