@@ -52,7 +52,7 @@ async def start(bot, cmd):
                             ]
                         ]
                     ),
-                    await add_served_user(message.from_user.id)            
+                    await add_served_user(cmd.from_user.id)
                     
                     parse_mode=enums.ParseMode.MARKDOWN,
                     disable_web_page_preview=True
@@ -94,15 +94,15 @@ async def start(bot, cmd):
                     caption=f_caption,
                     reply_markup=InlineKeyboardMarkup(buttons)
                     )
-                    await add_served_user(message.from_user.id)            
-                    
+                    await add_served_user(cmd.from_user.id)          
+
         except Exception as err:
             await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
     elif len(cmd.command) > 1 and cmd.command[1] == 'subscribe':
         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
         await bot.send_message(
             chat_id=cmd.from_user.id,
-            text={FORCE_MSG},
+            text=FORCE_MSG,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -121,15 +121,15 @@ async def start(bot, cmd):
                     [
                         InlineKeyboardButton("➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕", url=f"https://t.me/TheHanCockBot?startgroup=true")
                     ],
-        
+
                     [
                         InlineKeyboardButton("🗯️ ᴜᴘᴀᴅᴛᴇs", url="https://t.me/TheMoviesUpdate"),
                         InlineKeyboardButton("🎡 sᴜᴘᴘᴏʀᴛ", url="https://t.me/TheMoviesRequests")
                     ]
-                    ]
-               )
+                ]
+           )
         )
-            await add_served_user(message.from_user.id)            
+        await add_served_user(cmd.from_user.id)
                     
 
 
