@@ -52,7 +52,7 @@ async def start(bot, cmd):
                             ]
                         ]
                     ),
-                    await add_served_user(cmd.from_user.id),
+                await add_served_user(cmd.from_user.id),
                     
                     parse_mode=enums.ParseMode.MARKDOWN,
                     disable_web_page_preview=True
@@ -94,7 +94,7 @@ async def start(bot, cmd):
                     caption=f_caption,
                     reply_markup=InlineKeyboardMarkup(buttons)
                     )
-                    await add_served_user(cmd.from_user.id)          
+                await add_served_user(cmd.from_user.id)          
 
         except Exception as err:
             await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
