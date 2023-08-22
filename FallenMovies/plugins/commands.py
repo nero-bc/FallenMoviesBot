@@ -7,7 +7,7 @@ from pyrogram.errors import UserNotParticipant, FloodWait, UserIsBlocked, InputU
 from pyrogram.types import Message, CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from config import PICS, START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 from FallenMovies.helpers.utils import Media, get_file_details, get_size
-from Hiroko.Helper.database.usersdb import *
+from FallenMovies.Helper.database import *
 logger = logging.getLogger(__name__)
 
 
