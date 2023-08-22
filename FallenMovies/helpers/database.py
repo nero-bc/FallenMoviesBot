@@ -1,39 +1,38 @@
-import motor.motor_asyncio
-from config import DATABASE_URI, DATABASE_NAME
+from config import MONGO_URL
+from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
 
-class Database:
+mongo = MongoCli(MONGO_URL)
+db = mongo.Anonymous
 
-    def __init__(self, uri, database_name):
-        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
-        self.db = self._client[database_name]
-        self.col = self.db.user
+usersdb = db.users
 
-    def new_user(self, id):
-        return dict(
-            _id=int(id),                                   
-            file_id=None,
-            caption=None
-        )
 
-    async def add_user(self, id):
-        user = self.new_user(id)
-        await self.col.insert_one(user)
+async def is_served_user(user_id: int) -> bool:
+    user = await usersdb.find_one({"user_id": user_id})
+    if not user:
+        return False
+    return True
 
-    async def is_user_exist(self, id):
-        user = await self.col.find_one({'_id': int(id)})
-        return bool(user)
 
-    async def total_users_count(self):
-        count = await self.col.count_documents({})
-        return count
+async def get_served_users() -> list:
+    users_list = []
+    async for user in usersdb.find({"user_id": {"$gt": 0}}):
+        users_list.append(user)
+    return users_list
 
-    async def get_all_users(self):
-        all_users = self.col.find({})
-        return all_users
 
-    async def delete_user(self, user_id):
-        await self.col.delete_many({'_id': int(user_id)})
-    
-    
+async def add_served_user(user_id: int):
+    is_served = await is_served_user(user_id)
+    if is_served:
+        return
+    return await usersdb.insert_one({"user_id": user_id})
 
-db = Database(DATABASE_URI, DATABASE_NAME)
+
+
+async def remove_served_user(user_id: int):
+    is_served = await is_served_user(user_id)
+    if not is_served:
+        return
+    return await usersdb.delete_one({"user_id": user_id})
+
+
