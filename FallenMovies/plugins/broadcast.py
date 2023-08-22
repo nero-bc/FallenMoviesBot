@@ -4,7 +4,7 @@ import asyncio
 import logging 
 import datetime
 from config import ADMINS
-from FallenMovies.helpers.database import db
+from FallenMovies.helpers.database import *
 from pyrogram.types import Message
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
@@ -17,36 +17,46 @@ logger.setLevel(logging.INFO)
 
 @Client.on_message(filters.command("stats") & filters.user(ADMINS))
 async def get_stats(bot :Client, message: Message):
-    mr = await message.reply('**ᴀᴄᴄᴇssɪɴɢ ᴅᴇᴛᴀɪʟs....**')
-    total_users = await db.total_users_count()
-    await mr.edit( text=f"⊚ ᴛᴏᴛᴀʟ ᴜsᴇʀs |`{total_users}`")
+    sumit = await message.reply('**ᴀᴄᴄᴇssɪɴɢ ᴅᴇᴛᴀɪʟs....**')
+    total_users = len(await get_served_users())
+    await sumit.edit( text=f"⊚ ᴛᴏᴛᴀʟ ᴜsᴇʀs |`{total_users}`")
 
 
 # -------------------» ʙʀᴏᴀᴅᴄᴀsᴛ «------------------- #
 
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
-async def broadcast_handler(bot: Client, m: Message):
-    all_users = await db.get_all_users()
-    broadcast_msg = m.reply_to_message
-    sts_msg = await m.reply_text("ʙʀᴏᴀᴅᴄᴀsᴛ sᴛᴀʀᴛᴇᴅ !!") 
+async def broadcast_(bot, message):
+    users = await get_served_users()
+    b_msg = message.reply_to_message
+    status = await message.reply_text(
+        text='Broadcasting your messages...'
+    )
+    start_time = time.time()
     done = 0
+    blocked = 0
+    deleted = 0
     failed = 0
     success = 0
-    start_time = time.time()
-    total_users = await db.total_users_count()
-    async for user in all_users:
-        sts = await send_msg(user['_id'], broadcast_msg)
-        if sts == 200:
-           success += 1
-        else:
-           failed += 1
-        if sts == 400:
-           await db.delete_user(user['_id'])
+    
+    for user in users:
+        success, reason = await broadcast_messages(int(user['user_id']), b_msg)
+        if success:
+            success += 1
+        elif success is False:
+            if reason == "Blocked":
+                blocked += 1
+            elif reason == "Deleted":
+                deleted += 1
+            elif reason == "Error":
+                failed += 1
         done += 1
+        
         if not done % 20:
-           await sts_msg.edit(f"ʙʀᴏᴀᴅᴄᴀsᴛ ɪɴ ᴘʀᴏɢʀᴇss:\nᴛᴏᴛᴀʟ ᴜsᴇʀs: {total_users}\nᴛᴏᴛᴀʟ ʙʀᴏᴀᴅᴄᴀsᴛ: {done} / {total_users}\nsᴜᴄᴄᴇss: {success}\nғᴀɪʟᴇᴅ: {failed}")
-    completed_in = datetime.timedelta(seconds=int(time.time() - start_time))
-    await sts_msg.edit(f"ʙʀᴏᴀᴅᴄᴀsᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ:\nᴄᴏᴍᴘʟᴇᴛᴇ ɪɴ `{completed_in}`.\n\nᴛᴏᴛᴀʟ ᴜsᴇʀs {total_users}\nᴛᴏᴛᴀʟ ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ: {done} / {total_users}\nsᴜᴄᴄᴇss: {success}\nғᴀɪʟᴇᴅ: {failed}")
+            await status.edit(f"Broadcast in progress:\n\nTotal Users: {len(users)}\nCompleted: {done}/{len(users)}")
+    
+    time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
+    await status.edit(f"Broadcast completed:\n\nTotal Users: {len(users)}\nCompleted: {done}/{len(users)}\n\nTime taken: {time_taken}")
+
 
 
 # -------------------» sᴇɴᴅ-ᴍᴇssᴀɢᴇ «------------------- #
