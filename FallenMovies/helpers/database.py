@@ -1,7 +1,7 @@
-from config import MONGO_URL
+from config import DATABASE_URI
 from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
 
-mongo = MongoCli(MONGO_URL)
+mongo = MongoCli(DATABASE_URI)
 db = mongo.Anonymous
 
 usersdb = db.users
