@@ -1,5 +1,5 @@
 from pyrogram import *
-from FallenMovies.database import *
+from FallenMovies.Helper.database import *
 
 @Client.on_message(group=10)
 async def chat_watcher_func(_, message):
