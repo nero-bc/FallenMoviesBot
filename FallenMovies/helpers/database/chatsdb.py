@@ -1,4 +1,6 @@
-from Slave import db
+from Fallen import db
+
+
 
 async def get_chats():
   chat_list = []
