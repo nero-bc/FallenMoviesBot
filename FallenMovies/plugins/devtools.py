@@ -8,7 +8,7 @@ from contextlib import *
 from subprocess import getoutput as run
 from pyrogram import *
 from pyrogram.types import *
-from FallenMovies.Database import *
+from FallenMovies.database import *
 
 
 
