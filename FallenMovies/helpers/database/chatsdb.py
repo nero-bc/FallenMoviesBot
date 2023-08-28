@@ -1,4 +1,4 @@
-from FallenMovies import db
+from FallenMovies.database import *
 
 
 
