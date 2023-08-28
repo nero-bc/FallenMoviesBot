@@ -1,4 +1,9 @@
-from FallenMovies import db
+from motor.motor_asyncio import AsyncIOMotorClient as async_mongo
+
+
+async_mongo_client = async_mongo(config.MONGO_URL)
+db = async_mongo_client.fallen
+
 
 async def get_users():
   user_list = []
