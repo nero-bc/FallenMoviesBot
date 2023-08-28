@@ -1,7 +1,7 @@
 from motor.motor_asyncio import AsyncIOMotorClient as async_mongo
+from config import *
 
-
-async_mongo_client = async_mongo(config.MONGO_URL)
+async_mongo_client = async_mongo(DATABASE_URI)
 db = async_mongo_client.fallen
 
 
