@@ -1,8 +1,7 @@
 from pyrogram import *
-from Slave import *
-from Slave.Database import *
+from FallenMovies.database import *
 
-@app.on_message(group=10)
+@Client.on_message(group=10)
 async def chat_watcher_func(_, message):
     if message.from_user:
         us_in_db = await get_user(message.from_user.id)
