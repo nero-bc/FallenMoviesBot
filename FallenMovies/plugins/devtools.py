@@ -3,13 +3,15 @@ import io
 import traceback
 import asyncio
 import sys
-
+from config import *
 from contextlib import *
 from subprocess import getoutput as run
 from pyrogram import *
 from pyrogram.types import *
-from Slave import *
-from Slave.Database import *
+from FallenMovies.Database import *
+
+
+
 async def aexec(code, client, message):
     exec(
         "async def __aexec(client, message): "
@@ -17,19 +19,9 @@ async def aexec(code, client, message):
     )
     return await locals()["__aexec"](client, message)
 
-@app.on_message(filters.command("sh"))
-def sh(_, m):
-    if m.from_user.id in DEVS:
-        code = m.text.replace(m.text.split(" ")[0], "")
-        x = run(code)
-        msg = m.reply_text(
-            f"**SHELL**: `{code}`\n\n**OUTPUT**:\n`{x}`")
-        if len(m.command) <2:
-           msg.edit_caption("`Give A Command To Run...`")    
-    else:
-        return
+
    
-@app.on_message(filters.user(DEVS) & filters.command("eval"))
+@Client.on_message(filters.user(ADMINS) & filters.command("eval"))
 async def eval(client, message):
     status_message = await message.reply_text("Processing ...")
     if len(message.command) <2:
@@ -96,7 +88,7 @@ async def send_msg(user_id, message):
     except Exception:
         return 500, f"{user_id} : {traceback.format_exc()}\n"
 
-@app.on_message(filters.command("broadcast") & filters.user(DEVS))
+@Client.on_message(filters.command("broadcast") & filters.user(ADMINS))
 async def broadcast(_, message):
     if not message.reply_to_message:
         await message.reply_text("Reply To A Message To Broadcast It")
