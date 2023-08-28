@@ -7,7 +7,6 @@ from pyrogram.errors import UserNotParticipant, FloodWait, UserIsBlocked, InputU
 from pyrogram.types import Message, CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from config import PICS, START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 from FallenMovies.helpers.utils import Media, get_file_details, get_size
-from FallenMovies.helpers.database import *
 logger = logging.getLogger(__name__)
 
 
@@ -93,8 +92,7 @@ async def start(bot, cmd):
                     caption=f_caption,
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
-                await add_served_user(cmd.from_user.id)
-
+                
         except Exception as err:
             await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
     elif len(cmd.command) > 1 and cmd.command[1] == 'subscribe':
@@ -128,7 +126,6 @@ async def start(bot, cmd):
                 ]
             )
         )
-        await add_served_user(cmd.from_user.id)
         
                     
 
