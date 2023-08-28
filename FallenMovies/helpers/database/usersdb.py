@@ -1,4 +1,4 @@
-from Slave import db
+from FallenMovies import db
 
 async def get_users():
   user_list = []
