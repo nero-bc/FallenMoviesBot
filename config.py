@@ -10,41 +10,41 @@ def is_enabled(value, default):
     else:
         return default
 
-# ---------» ʙᴏᴛ sᴇᴛᴛɪɴɢs «--------- 
+# ---------» Bot Settings «--------- 
 BUTTON = True
 USE_CAPTION_FILTER = True
 
 
-# ---------» ᴍᴏɴɢᴏ ᴅʙ ɪɴғᴏʀᴍᴀᴛɪᴏɴ «---------
-DATABASE_URI = "mongodb+srv://MrsFallenBot:MrsFallenBot@cluster0.hsedwn2.mongodb.net/?retryWrites=true&w=majority"
+# ---------» MongoDb Information «---------
+DATABASE_URI = "mongodb+srv://cerimi3097:cerimi3097@cluster0.eoz2qwn.mongodb.net/?retryWrites=true&w=majority"
 DATABASE_NAME = "Cluster0"
-COLLECTION_NAME = 'Fallen_Files'
+COLLECTION_NAME = 'StupidBoi_Files'
 
 
-# ---------» ʙᴏᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ «---------
+# ---------» Bot Information «---------
 SESSION = 'Media_search'
-API_ID = "18719789"
-API_HASH = "a03c27be3e14aac40f62cb4e95207fae"
-BOT_TOKEN = "5895914482:AAGWrQgS_JIpFeuM-A0M_NIL7hYLRxDH8Kk"
+API_ID = "28587040"
+API_HASH = "20f4a4a125d663eb14693cf716788400"
+BOT_TOKEN = "5843548252:AAFLYdZSEHdlIQ1lEOG4X8p8YacLiESprLU"
 
 
-# ---------» ᴀᴅᴍɪɴs ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴜsᴇʀs «---------
-PREMIUMS = [6109551937, 5416887843, 6018550523]
-ADMINS = [6109551937, 5416887843, 6018550523]
-CHANNELS = [-1001652627420, -1001896500605]
+# ---------» Admins, Channels, And Users «---------
+PREMIUMS = [1988545170, 1895952308]
+ADMINS = [1988545170, 1895952308]
+CHANNELS = [-1001886568963]
 auth_users = []
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
-AUTH_CHANNEL = -1001831916389
+AUTH_CHANNEL = -1001971430705
 AUTH_GROUPS = []
 
 
 # ---------» ʟɪɴᴋ sʜᴏʀᴛɴᴇʀ ᴄᴏɴᴠᴇʀᴛᴇʀ «---------
-URL_SHORTNER_API = environ.get("URL_SHORTNER_API", "https://urlshortx.com/api?api")
-URL_SHORTNER_API_KEY = environ.get("URL_SHORTNER_API_KEY", "c460f2f1a0f68b2c56cda7f12121c210ed10b08b")
+URL_SHORTNER_API = environ.get("URL_SHORTNER_API", "https://publicearn.com/api?api")
+URL_SHORTNER_API_KEY = environ.get("URL_SHORTNER_API_KEY", "15597af089977d7b56868867823be0b17c76d0f1")
 
 
 
-# ---------» ᴘɪᴄs ʟɪɴᴋs «---------
+# ---------» Pics Links «---------
 default_pics_links = """
 https://graph.org/file/5cc48ce60199bda2ba676.jpg
 
@@ -62,23 +62,24 @@ https://graph.org/file/b64154792ca4b43e924f1.jpg
 PICS = (environ.get('PICS', default_pics_links)).split()
 
 
-# ---------» sᴛᴀʀᴛ ᴍᴇsᴀᴀɢᴇs «---------
+# ---------» Start Message «---------
 default_start_msg = """
-ʜᴇʟʟᴏ 
-ɪ ᴀᴍ ᴍᴏᴠɪᴇs ᴘʀᴏᴠɪᴅᴇʀ ʙᴏᴛ
-ɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴀʟʟ ᴍᴏᴠɪᴇs  
-ᴊᴜsᴛ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ 
-ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴀɴᴅ ᴇɴᴊᴏʏ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏᴠɪᴇs
+**♿Welcome to AnimeBot**
+
+♿Your gateway to endless #anime and #hanime delights!
+
+🚼Type a name, any name, and let the adventure begin!
 """
 START_MSG = environ.get('START_MSG', default_start_msg)
 
 
-# --------- ᴄᴜsᴛᴏᴍ ᴄᴀᴘᴛɪᴏɴ ---------
+# --------- Custom Captions---------
 default_file_caption = """
 📁 {file_name}]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ɪғ ʏᴏᴜ ʟɪᴋᴇ ᴠɪᴅᴇᴏ ᴛʜᴀɴ ᴘʟᴇᴀsᴇ 
-ᴀᴅᴅ sᴏᴍᴇ ᴍᴇᴍʙᴇʀ ᴀɴᴅ sʜᴀʀᴇ ᴛʜᴇ ʟɪɴᴋ
+Explore the anime world with us!
+Join now and enjoy unlimited anime and hanime.
+Invite your friends too!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 
